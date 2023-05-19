@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cafes</title>
+</head>
+<body>
+<h1>Cafes  ddd</h1>
+<ul>
+  <li th:each="cafe : ${cafes}">
+    <a th:href="@{/menu/{cafeId}(cafeId=${cafe.id})}" th:text="${cafe.name}"></a>
+    <p> th:text="${cafe.adress}"</p>
+  </li>
+</ul>
+</body>
+</html>

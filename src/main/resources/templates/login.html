@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
+
+</head>
+<body>
+<div class="form-bg">
+</div>
+<div class="form-container">
+    <div class="form-div">
+        <img src="/static/media/logo.png" style="transform: translateY(-60px); width: 160px; height: 70px;"/>
+        <div>
+            <div>
+                <h1 style="transform: translateY(20px); font-size: 40px;">Sign In</h1>
+                <span style="transform: translateY(25px); font-size: 16px;">Sign in to stay connected</span>
+            </div>
+            <div th:if="${param.error}" style="transform: translateY(35px);">
+                <div class="alert alert-danger">Invalid Email or Password !!!</div>
+            </div>
+            <div th:if="${param.logout}" style="transform: translateY(35px);">
+                <div class="alert alert-success">You have been logged out !!!</div>
+            </div>
+            <form style="transform: translateY(60px);"
+                  method="post"
+                  th:action="@{/login}">
+                <label style="transform: translateY(-10px);" for="password">Email</label>
+                <input style="transform: translateY(-10px);" type="email" id="username" name="username" />
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+                <input style="width: 14px; transform: translateY(-15px)" type="checkbox" />
+                <span style="transform: translateY(-51px) translateX(20px);">Remember me?</span>
+                <input class="button" type="submit" value="Login" style="width: 100px; display: block; transform: translateX(120px) translateY(-40px);"/>
+            </form>
+            <p style="transform: translateY(70px);">Don’t have an account?<a  style="color: #FC5B00; text-decoration: none;"  th:href="@{/registration}"> Click here to sign up.</a></p>
+        </div>
+    </div>
+    <div class="form-img">
+        <img src="static/media/form-img.png" style="width: 750px; height: 690px; padding-top: 40px;" />
+    </div>
+</div>
+</body>
+</html>
+<style>
+  body{
+  background: url(/static/media/Sign_in.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #FFFAF6;
+}
+.form-bg{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.form-bg img{
+  height: 100vh;
+}
+.form-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-img{
+  right: 100px;
+
+}
+.form-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  height: 60vh;
+  justify-content: space-around;
+}
+.form-div>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+  justify-content: space-evenly;
+}
+.form-div>div>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-div form{
+  display: flex;
+  flex-direction: column;
+
+}
+.form-div form label, .form-div span{
+  color: rgb(185, 185, 185);
+}
+.form-div form input{
+  margin: 10px 0;
+}
+.form-div input{
+  border-radius: 24px;
+  border: 1px solid #FC5B00;
+  width: 350px;
+  height: 35px;
+  padding: 8px 16px;
+gap: 227px;
+}
+.form-div input:last-of-type{
+  background-color: #FC5B00;
+  color: #fff;
+}
+
+
+</style>

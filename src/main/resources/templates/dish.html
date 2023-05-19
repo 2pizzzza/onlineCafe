@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${cafe.name} + ' - ' + ${menu.name}"></title>
+</head>
+<body>
+<h1 th:text="${cafe.name} + ' - ' + ${menu.name}"></h1>
+<p>Category: <span th:text="${menu.category}"></span></p>
+<p>Price: <span th:text="${menu.price}"></span></p>
+<div>
+  <!-- Отображение списка комментариев -->
+  <div>
+    <h3>Комментарии</h3>
+    <ul>
+      <li th:each="comment : ${comments}">
+        <span th:text="${comment.user.name}"></span>: <span th:text="${comment.comment}"></span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<form th:action="@{/menu/{cafeId}/dish/{menuId}/comment(cafeId=${cafe.id}, menuId=${menu.id})}" method="post">
+  <textarea name="comment" rows="4" cols="50" required></textarea>
+  <button type="submit">Добавить комментарий</button>
+</form>
+
+</body>
+</html>

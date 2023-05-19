@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${cafe.name} + ' Menu'"></title>
+</head>
+<body>
+<h1 th:text="${cafe.name} + ' Menu'"></h1>
+<form th:action="@{/menu/{cafeId}(cafeId=${cafe.id})}" method="get">
+  <label for="category">Filter by category:</label>
+  <select id="category" name="category">
+    <option value="">All</option>
+    <th:block th:each="category : ${categories}">
+      <option th:value="${category}" th:text="${category}"></option>
+    </th:block>
+  </select>
+  <button type="submit">Apply</button>
+</form>
+<table>
+  <form method="get" th:action="@{'/menu/' + ${cafe.id}}">
+    <select id="category" name="category" onchange="this.form.submit()">
+      <option value="">All</option>
+      <th:block th:each="category : ${categories}">
+        <option th:value="${category}" th:text="${category}" th:selected="${category == param.category}"></option>
+      </th:block>
+    </select>
+  </form>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="menu : ${menus}">
+    <td>
+      <a th:href="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id}}">View Dish</a>
+        <span th:text="${menu.name}"></span>
+      </a>
+    </td>
+    <td th:text="${menu.category}"></td>
+    <td th:text="${menu.price}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
