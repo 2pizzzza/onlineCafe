@@ -1,10 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="about.css">
 </head>
-<body>
 
+<body>
+<div class="com">
+    <ul><a href="/home">Home</a></ul>
+    <ul>Restaurants</ul>
+    <ul> <a href="/about">About</a> </ul>
+    <ul style='transform: translateX(130px) translateY(-30px);' class="ana"><img class="avatar" th:src="${user?.image ?: '/static/media/default.jpg'}" alt="User Image"></ul>
+
+</div>
+<div class="text">
+    <p class="text-p">Welcome to NOPI - your perfect choice for convenient delivery of delicious food. We strive to
+        provide the ultimate dining experience by bringing the finest dishes directly to you.
+    </p>
+    <p class="te">Our mission is to bring the best food from your favorite <span style="display: inline-block;">
+        restaurants directly to you. We pride ourselves on
+        partnering with the city's best establishments to offer you a variety of quality options.</span></p>
+    <p class="tee">We have a simple and convenient ordering process through our website. We offer a wide range of
+        culinary
+        destinations to suit all your preferences.</p>
+    <p class="teee">We provide excellent service and are always ready to help you with any questions or concerns. Your
+        satisfaction is
+        our priority.</p>
+    <p class="teeeee">Join NOPI today and enjoy the convenience, variety and flavors we offer. Let us satisfy your
+        gastronomic desires
+        while you enjoy every bite.</p>
+</div>
 </body>
+
 </html>
+<style>
+  body {
+    background: url(/static/media/о\ нас.png);
+    -o-background-size: cover;
+    background-size: cover;
+    width: 1400px;
+  }
+
+  .com {
+    display: flex;
+    padding-left: 20px;
+    transform: translateY(25px);
+  }
+.avatar {
+  width: 100px; /* установите желаемую ширину */
+  height: 100px; /* установите желаемую высоту */
+  border-radius: 50%; /* установите радиус скругления в половину ширины/высоты */
+  object-fit: cover; /* для сохранения соотношения сторон */
+}
+  ul {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;
+    font-family: 'Bona Nova';
+    font-style: normal;
+    font-weight: 400px;
+  }
+
+  .ana {
+    padding-left: 900px;
+    transform: translateY(-30px) translateX(-0px);
+    width: 5px;
+    height: 5px;
+  }
+
+  a:active,
+  a:hover,
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .text {
+    transform: translateX(140px) translateY(100px);
+    position: absolute;
+    width: 770px;
+    height: 675px;
+    left: calc(50% - 1024px/2 + 17px);
+    top: calc(50% - 700px/2 + 34px);
+    text-align: center;
+    justify-content: center;
+
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125.49%;
+    /* or 40px */
+
+    text-align: center;
+
+    color: #FFF5ED;
+  }
+</style>

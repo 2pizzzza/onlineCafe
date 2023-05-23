@@ -8,6 +8,14 @@
 <h1 th:text="${cafe.name} + ' - ' + ${menu.name}"></h1>
 <p>Category: <span th:text="${menu.category}"></span></p>
 <p>Price: <span th:text="${menu.price}"></span></p>
+
+<div>
+  <!-- Отображение фотографии блюда -->
+  <img th:src="${menu.photo}" alt="Menu Item Photo">
+  <p>Photo: <span th:text="${menu.photo}"></span></p>
+
+</div>
+
 <div>
   <!-- Отображение списка комментариев -->
   <div>
@@ -18,12 +26,28 @@
       </li>
     </ul>
   </div>
-
 </div>
+
 <form th:action="@{/menu/{cafeId}/dish/{menuId}/comment(cafeId=${cafe.id}, menuId=${menu.id})}" method="post">
   <textarea name="comment" rows="4" cols="50" required></textarea>
   <button type="submit">Добавить комментарий</button>
 </form>
+
+<!-- ... -->
+
+<h1 th:text="${cafe.name} + ' Menu'"></h1>
+
+<!-- ... -->
+
+<form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/add-to-cart'}" method="post">
+  <button type="submit">Add to Cart</button>
+</form>
+
+<form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/remove-from-cart'}" method="post">
+  <button type="submit">Remove from Cart</button>
+</form>
+
+<!-- ... -->
 
 </body>
 </html>

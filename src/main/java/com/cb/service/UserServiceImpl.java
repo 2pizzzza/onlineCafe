@@ -8,6 +8,8 @@ import com.cb.repository.RoleRepository;
 import com.cb.repository.UserRepository;
 import com.cb.util.TbConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -32,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
 
     @Override
     public void saveUser(UserDto userDto) {
@@ -82,5 +85,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+    public User getCurrentUser() {
+        // Внутри этой функции предполагается, что есть доступ к объекту userService, который реализует UserService
+
+        // Проверяем, есть ли текущий аутентифицированный пользователь
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null; // Пользователь не аутентифицирован
+        }
+
+        // Получаем email текущего пользователя
+        String email = authentication.getName();
+
+        // Используем userService для найти пользователя по email
+        User user = findUserByEmail(email);
+        if (user == null) {
+            throw new RuntimeException("Failed to get current user"); // Обработка ошибки, если пользователь не найден
+        }
+
+        return user;
     }
 }

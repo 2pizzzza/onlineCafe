@@ -1,89 +1,169 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{/home.css}">
 </head>
+
 <body>
 <div class="com">
-    <ul>Home</ul>
+    <ul> <a href="/home">Home</a></ul>
     <ul>Restaurants</ul>
-    <ul>Our Service</ul>
-    <ul>About</ul>
-    <ul class="ana"><img class="avatar" th:src="${user?.image ?: '/media/default.jpg'}" alt="User Image"></ul>
+    <ul><a href="/about">About</a></ul>
+    <ul style='transform: translateX(130px) translateY(-30px);' class="ana"><img class="avatar" th:src="${user?.image ?: '/static/media/default.jpg'}" alt="User Image"></ul>
 </div>
 <div class="text">
     <div class="FreshF">
         <h2 class="te">Fresh Food</h2>
-        <p class="ptext">"QR codes on tables, convenient orders and fast payment via the app - all this with our
-            service. Enjoy your favorite food without waiting for a waiter and make visiting restaurants more
-            comfortable. Join us right now!"</p>
+        <p class="ptext">"QR codes on tables, convenient orders and fast payment via the app - all this with our service.
+            Enjoy your favorite food without waiting for a waiter and make visiting restaurants more comfortable. Join us
+            right now!"</p>
         <h2 class="tee">Great Taste</h2>
         <p class="with">with</p>
     </div>
 </div>
+<div class="qr-code-text">
+    <p class="all">
+    <p class="text-p">Our service offers a convenient way to order food in a <span> restaurant, cafe or bar.</span>
+        Thanks to the <span> QR code</span> on the table, you can instantly choose your favorite dishes. There is no need
+        to wait for a waiter and ask for a menu - everything happens <span> quickly</span> and without <span> unnecessary
+        queues.</span></p>
+    <p class="text-"> We offer a huge selection of restaurants, cafes and bars to satisfy the most refined taste. You
+        can enjoy fresh seafood, juicy steaks, Italian pasta, Japanese rolls and much more from the comfort of your <span>
+        home or office.</span></p>
+    <p class="et">We have a variety of <span> ways</span> to receive an order, including delivery, pickup or visiting a
+        restaurant live. Choose the most convenient option for you.</p>
+    <p class="etee">We are sure that our service will make visiting restaurants <span> easy and enjoyable.</span> You
+        will get an exceptional level of service and <span>xgreat food without unnecessary difficulties and stress.</span>
+        Join us and discover a new world of tastes and convenience!</p>
+    </p>
+</div>
+<div class="kh1">
+    <h2>The most popular establishments</h2>
+</div>
 <div class="card-carousel">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <div class="card-carousel">
-        <section class="wrapper">
-            <div class="card" data-effect="zoom" th:each="cafe : ${cafes}">
-                <button class="card__save  js-save" type="button">
-                    <i class="fa  fa-bookmark"></i>
-                </button>
-                <figure class="card__image">
-                    <img th:src="@{/assets/home.png}" alt="Short description">
-                </figure>
-                <div class="card__header">
-                    <figure class="card__profile">
-                        <img th:src="@{/assets/Ellipse 8.png}" alt="Short description">
-                    </figure>
-                </div>
-                <div class="card__body">
-                    <h3 class="card__name" th:text="${cafe.name}"></h3>
-                    <p class="card__job"></p>
-                    <a th:href="@{/menu/{cafeId}(cafeId=${cafe.id})}" th:text="${cafe.name}"></a>
-                </div>
-                <div class="card__footer" th:text="${cafe.disription}">
-                    <p class="card__date" th:text="${cafe.address}"></p>
-                    <p class=""></p>
-                </div>
-            </div>
-        </section>
+    <div class="cards" id="card0">
+        <img class="amit" src="/static/media/form-bg.png" alt="">
     </div>
+    <div class="cards" id="card1">
+        <img class="amit" src="/static/media/form-bg.png" alt="">
+    </div>
+    <div class="cards" id="card2">
+        <img class="amit" src="/static/media/form-bg.png" alt="">
+    </div>
+    <div class="cards" id="card3">
+        <img class="amit" src="/static/media/form-bg.png" alt="">
+    </div>
+    <div class="cards" id="card4">
+        <img class="amit" src="/static/media/form-bg.png" alt="">
+    </div>
+</div>
+</div>
+<div class="kh21">
+    <h2 style="transform: translateY(100px);">Choose a category</h2>
     <div class="category">
-        <div class="fast">
-            <img src="assets/Vector.png" alt="">
-            <p>Fast Food</p>
+        <div class="fast-food">
+            <img src="/static/media/Vector.png" alt="aaa">
+            <h3 style="transform: translateX(-30px) translateY(-25px);" class="ccs">Fast Food</h3>
         </div>
-        <div class="eco">
-            <img th:src="@{/static/media/logo.png}" src="assets/Vector (1).png" alt="">
-            <p>Eco Food </p>
+        <div class="eco-food">
+            <img src="/static/media/Vector (1).png" alt="">
+            <h3 style="transform: translateX(70px) translateY(-20px);" class="ccs">Eco Food</h3>
         </div>
-        <div class="restor">
-            <img th:src="@{/static/media/logo.png}" src="assets/Vector (2).png" alt="">
-            <p>Restaurants</p>
+        <div class="restaurants">
+            <img src="/static/media/Vector (2).png" alt="">
+            <h3 style="transform: translateY(-20px) translateX(15px);" class="ccs">Restaurants</h3>
         </div>
     </div>
-    <img class="logo" src="assets/Group 24.png" alt="">
+</div>
+<div class="textqR">
+    <h4>"Convenient ordering of food in restaurants via <span class="ami" style="calor:#2A635E;">QR</span> codes - only
+        with us!"</h4>
+</div>
+<div class="commentr">
+    <h5>What Our Happy Customer Talk About Us</h5>
+    <div class="oment1">
+        <h6 class="coment" style="font-size: large; transform: translateX(40px) translateY(-20px);">"Just a wonderful
+            service! I really appreciate the convenience and speed, which is why I always choose this
+            site for ordering food. QR codes on the tables are brilliant! Now you don't have to wait for the waiter to place
+            an order. I made a choice - I paid - and everything is ready by the time the waiter brings my order. I highly
+            recommend it!"</h6>
+        <h6 class="autour" style="transform: translateY(-70px) translate(-290px);">Amit Krutoy - Loyal Customer</h6>
+    </div>
+    <div class="coment2">
+        <h6 class="coment" style="transform: translateY(-40px) translateX(-360px); font-size: large;">"I finally found the
+            perfect place to order food! This site is just a godsend for lovers of
+            delicious food and convenience. I can choose my favorite dishes from a huge list of restaurants and cafes, make
+            an order through a mobile application and receive them at the most convenient time. No queues, no stress, no
+            extra hassle. Great service!"</h6>
+        <h6 class="autour" style="transform: translateY(-100px) translateX(-670px);">Daniil Romanenko - Loyal Customer
+        </h6>
+    </div>
+</div>
+<div class="footer">
+    <div class="text-footer">
+        <h5 style="display: inline; transform: translateY(-40px);" class="text-footer-about">"Enjoy culinary delights
+            <span style="display: inline;   font-family: 'Kindentosca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 90px;
+        color: #FC5B00;">with</span>
+            NO<span>PI</span> - your trusted guide to the world of taste!"
+        </h5>
+    </div>
+    <div class="order">
+        <h5>Make an Order</h5>
+    </div>
+    <div class="lll">
+        Join us on social networks and follow our news and promotions!
+    </div>
+    <div class="lili" style="color: aliceblue;">
+        <ul style=" list-style-type: none; color: #C2C2C2;" >
+            <li class="lililil" style="margin-right: 10px;">About us</li>
+            <li class="lililil" style="margin-right: 10px;">Profile</li>
+        </ul>
+        <ul style=" list-style-type: none; color: #C2C2C2;">
+            <li class="lililil">For questions</li>
+            <li class="lililil">Restaurants</li>
+        </ul>
+    </div>
+    <div class="text-location">
+        <h4 class="location" style="width: 200px; margin-bottom: 53px;">Kyrgyzstan, Bishkek, ​Maldybaeva, 34B​ 5th floor
+            Oktyabrsky district, Bishkek, 720020</h4>
+        <h4 class="location" style="margin-bottom: 100px;">nopi.food@gmail.com</h4>
+        <h4 style="color: #2A635E;">a</h4>
+    </div>
 </div>
 </body>
 </html>
 <style>
   body {
-  background: url(/static/media/mama.png);
+  background: url(/static/media/Основной\ \(7\).png);
   -o-background-size: cover;
   background-size: cover;
+  width: 1400px;
+}
+.avatar {
+  width: 100px; /* установите желаемую ширину */
+  height: 100px; /* установите желаемую высоту */
+  border-radius: 50%; /* установите радиус скругления в половину ширины/высоты */
+  object-fit: cover; /* для сохранения соотношения сторон */
 }
 
 .com {
   display: flex;
   padding-left: 20px;
-  transform: translateY(60px);
+  transform: translateY(25px);
 }
-
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
 ul {
   font-size: 20px;
   padding-left: 20px;
@@ -91,18 +171,18 @@ ul {
   color: aliceblue;
   font-family: 'Bona Nova';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400px;
 }
 
 .ana {
-  padding-left: 1000px;
-  transform: translateY(-30px) translate(-90px);
+  padding-left: 900px;
+  transform: translateY(-30px) translateX(-0px);
   width: 5px;
   height: 5px;
 }
 
 .text {
-  transform: translateY(-80px) translateX(-60px);
+  transform: translateY(-150px) translateX(-50px);
 }
 
 .te {
@@ -149,12 +229,14 @@ ul {
   top: 300.7px;
 
   font-family: 'Kindentosca';
-  src: url("assets/Kindentosca.otf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-size: 90px;
   line-height: 131px;
+  /* identical to box height */
 
+
+  /* 3 */
 
   color: #FC5B00;
 
@@ -162,7 +244,7 @@ ul {
 }
 
 .ptext {
-  transform: translateY(40px);
+  transform: translateY(19px);
   position: absolute;
   width: 604px;
   height: 165px;
@@ -177,459 +259,641 @@ ul {
 
   color: #FFFFFF;
 }
-p{
 
-position: absolute;
-width: 274.44px;
-height: 35.26px;
-left: 1284.74px;
-top: 5795.21px;
-font-size: 20px;
+span {
+  color: #F37761;
+}
 
-color: #2A635E;
+.qr-code-text {
+  width: 1000px;
+  height: 1000px;
+  transform: translateY(-4895px) translateX(-1050px);
+  top: 1369px;
+  font-weight: 700;
 }
-.logo{
-  transform: translateY(4900px);
+
+.text-p {
+  width: 1050px;
+  font-size: 32px;
+  font-family: 'Inter';
+  font-style: normal;
+  line-height: 44px;
+  color: #1D5655;
 }
+
+.text- {
+  width: 1050px;
+  font-style: 700px;
+  color: #1D5655;
+  font-family: 'Inter';
+  line-height: 44px;
+  font-size: 32px;
+  transform: translateY(199px);
+}
+
+.et {
+  width: 1050px;
+  font-size: 32px;
+  font-family: 'Inter';
+  color: #1D5655;
+  list-style: 44px;
+  font-style: normal;
+  transform: translateY(345px);
+}
+
+.etee {
+  width: 1050px;
+  font-size: 32px;
+  font-family: 'Inter';
+  color: #1D5655;
+  list-style: 44px;
+  font-style: normal;
+  transform: translateY(447px);
+}
+
+.kh1 {
+  transform: translateY(740px) translateX(150px);
+  justify-content: center;
+  width: 1200px;
+  text-align: center;
+  color: #2A635E;
+}
+
+.kh21 {
+  transform: translateY(740px) translateX(-0px);
+  transform: translateY(1900px) translateX(400px);
+  width: 800px;
+  height: 100px;
+}
+
+h2 {
+  font-size: 80px;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  color: #2A635E;
+}
+
+p {
+
+  position: absolute;
+  width: 274.44px;
+  height: 35.26px;
+  left: 1284.74px;
+  top: 5795.21px;
+  font-size: 20px;
+
+  color: #2A635E;
+}
+
+.logo {
+  transform: translateY(5200px);
+}
+
 /*
 card carousel
 */
-.card-carousel{
-  transform: translateY(990px) translateX(0px);
-}
-/* GLOBAL VARIABLES */
-:root {
-  --font: "Roboto", sans-serif;
-  --fontOrigin: 1rem;     /* 16px */
-  --fontSmall: 0.625em;   /* 10px */
-  --fontMedium: 0.875em;  /* 14px */
-  --fontNormal: 1em;      /* 16px */
-  --fontLarge:  1.375em;  /* 22px */
-  --fontLight: 100;
-  --fontRegular: 400;
-  --speed: 0.65s;
+.card-carousel {
+  transform: translateY(990px) translateX(-40px);
 }
 
-@keyframes zoom {
+.notCurrentCard {
+  opacity: 0.5;
+  display: block;
+}
+
+.currentCard {
+  opacity: auto;
+  display: block;
+  z-index: 999;
+}
+
+.hideCard {
+  display: none;
+}
+
+
+/*Magic happens here!*/
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}
+
+@-webkit-keyframes slideOutCenterLeft {
   from {
-    object-position: 0 50%;
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
   }
+
   to {
-    object-position: 100% 50%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: all 3s ease-in-out;
   }
 }
 
-@keyframes blur {
+@keyframes slideCenterLeft {
   from {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
   }
+
   to {
-    -webkit-transform: scale(1.5, 1.5);
-    transform: scale(2, 2);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: all 3s ease-in-out;
   }
 }
 
-* {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.slideOutCenterLeft {
+  -webkit-animation-name: slideOutCenterLeft;
+  animation-name: slideOutCenterLeft;
+}
+
+@-webkit-keyframes slideOutRight {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    /*visibility: hidden;*/
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    /*visibility: hidden;*/
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+.slideOutRight {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}
+
+@-webkit-keyframes slideOutLeft {
+  from {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+  }
+}
+
+.slideOutLeft {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
+
+@-webkit-keyframes reverseSlideOutCenterLeft {
+  from {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+@keyframes reverseSlideOutCenterLeft {
+  from {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+.reverseSlideOutCenterLeft {
+  -webkit-animation-name: reverseSlideOutCenterLeft;
+  animation-name: reverseSlideOutCenterLeft;
+}
+
+@-webkit-keyframes reverseSlideOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+@keyframes reverseSlideOutLeft {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(-100%, 0, 0);
+    transform: scale(0.8) translate3d(-100%, 0, 0);
+    transition: all 3s ease-in-out;
+  }
+}
+
+.reverseSlideOutLeft {
+  -webkit-animation-name: reverseSlideOutLeft;
+  animation-name: reverseSlideOutLeft;
+}
+
+@-webkit-keyframes reverseSlideOutRight {
+  from {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes reverseSlideOutRight {
+  from {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+
+  to {
+    -webkit-transform: scale(0.8) translate3d(100%, 0, 0);
+    transform: scale(0.8) translate3d(100%, 0, 0);
+  }
+}
+
+.reverseSlideOutRight {
+  -webkit-animation-name: reverseSlideOutRight;
+  animation-name: reverseSlideOutRight;
 }
 
 body {
-  font-family: var(--font);
-  font-weight: var(--fontOrigin);
-  font-size: 1rem;
-  line-height: 1.2;
-  letter-spacing: 0.005rem;
-  -webkit-font-smoothing: subpixel-antialiased;
-  font-smoothing: subpixel-antialiased;
+  background-color: #D1C4E9;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, 1fr );
-  grid-template-rows: auto;
-  grid-template-areas:
-    "menu menu menu"
-    ". card .";
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 40px;
-  padding-bottom: 40px;
+.cards {
+  max-height: 600px;
+  height: 600px;
+  top: 50%;
+  transition: all .5s ease-out;
+  width: 600px;
+  margin: auto;
+  right: 100%;
+  left: 100%;
+  border-radius: 25px;
+  position: fixed;
+  box-shadow: -1px 15px 30px -12px black;
 }
 
-.menu {
-  grid-area: menu;
-  align-self: end;
+.amit {
+  height: 600px;
+  width: 600px;
+  border-radius: 25px;
+
 }
 
-.menu__list {
+.amit {}
+
+/*mobile devices like iphone*/
+
+@media (max-width: 461px) {
+  .cards {
+    right: 5%;
+    left: 5%;
+  }
+}
+
+
+/* big landscape tablets, laptops, and desktops */
+
+@media (min-width:1025px) {
+  .cards {
+    right: 35%;
+    left: 35%;
+  }
+}
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width:641px) and (max-width:961px) {
+  .cards {
+    top: 25%;
+    right: 25%;
+    left: 25%;
+  }
+}
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width:962px) and (max-width:1024px) {
+  .cards {
+    right: 30%;
+    left: 30%;
+  }
+}
+
+.category {
+  transform: translateY(240px) translateX(-100px);
+  display: flex;
+  width: 1000px;
+  height: 100 px;
+
+}
+
+.ccs {
+  width: 225.07px;
+  height: 35.26px;
+  left: 353.36px;
+  top: 5797.63px;
+  font-size: 36px;
+  color: #2A635E;
+}
+
+.fast-food {
+  transform: translateX(20px) translateY(20px);
+}
+
+.restaurants {
+  transform: translateY(20px) translateX(200px);
   text-align: center;
 }
 
-.menu__item {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: var(--fontMedium);
-  font-weight: var(--fontRegular);
-  text-transform: uppercase;
-  color: #a9a9a9;
-  cursor: pointer;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+.eco-food {
+  transform: translateY(140px) translateX(100px);
 }
 
-.menu__item::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  margin-top: 6px;
-  background: rgba(100, 100, 250, 1);
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+.textqR {
+  transform: translateY(3100px) translateX(850px);
+  font-family: 'Inter';
+  color: #FFF6EB;
+  width: 570px;
+  font-size: 50px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 900;
 }
 
-.menu__item:hover {
-  color: rgba(150, 150, 255, 1);
-}
-.menu__item.active {
-  color: rgba(100, 100, 250, 1);
+.ami {
+  color: #1D5655;
 }
 
-.menu__item.active::after {
-  width: 100%;
+.commentr {
+  transform: translateY(3440px) translateX(520px);
+  width: 900px;
+  height: 154px;
+  left: 722px;
+  top: 7524px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 77px;
+  text-align: center;
+
+  color: #2A635E;
 }
 
-.card {
-  position: relative;
-  grid-area: card;
-  align-self: center;
-  justify-self: center;
-  overflow: hidden;
-  display: block;
-  width: 100%;
-  max-width: 250px;
-  height: 400px;
-  font-size: var(--fontOrigin);
-  border-radius: 8px;
-  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+.coment {
+  width: 760px;
+  color: #FFFFFF;
+  font-family: 'Arial';
+  font-size: 5px;
+  line-height: 24px;
+  font-style: 100;
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: justify;
 }
 
-.card:hover {
-  box-shadow: 0 40px 130px rgba(0, 0, 0, 0.6);
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+.coment1 {
+  transform: translateY(-10px) translateX(400px);
 }
 
-.card__save {
+.autour {
+  font-size: large;
+  color: #FFFFFF;
+}
+
+.footer {
+  transform: translateY(4270px);
+}
+
+.text-footer-about {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  display: block;
-  width: 35px;
-  height: 35px;
-  background: transparent;
-  border: 0;
-  opacity: 0;
-  border-radius: 3px;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  width: 700px;
+  height: 262px;
+  left: 142px;
+
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 132.02%;
+  /* or 79px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+
 }
 
-.card__save:focus {
-  outline: 0;
-  background-color: rgba(255, 255, 255, 0);
+.order {
+  transform: translateX(1100px) translateY(95px);
+  color: #FFFFFF;
+  font-size: 36px;
+  width: 300px;
 }
 
-.card:hover .card__save {
-  opacity: 0.6;
-}
-
-.card__save i {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-}
-
-.card__save:hover i {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.card__save:active,
-.card__save.active {
-  opacity: 1 !important;
-}
-
-.card__save:active i,
-.card__save.active i {
-  color: white;
-}
-
-.card__image {
+.lll {
+  transform: translateY(320px) translate(-30px);
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+  width: 450px;
+  height: 56px;
+  left: 149px;
+
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+
+  color: #C2C2C2;
 }
 
-.card__image img {
-  -webkit-transform: scale(1.3, 1.3);
-  transform: scale(1.3, 1.3);
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-  animation-name: zoom;
-  animation-duration: 30s;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+.lili{
+  display: flex;
+  width: 275px;
+  transform: translateY(300px) translateX(750px);
 }
 
-.card:hover .card__image img {
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
-  opacity: 0.5;
+.lililil{
+  margin-bottom: 40px;
+
 }
 
-.card__header {
-  display: grid;
-  width: 100%;
-  height: 200px;
+.text-location{
+  width: 200px;
+  transform: translateY(85px) translateX(1200px);
+  font-size: 15px;
+  color: #C2C2C2;
 }
-
-.card__profile {
-  align-self: center;
-  justify-self: center;
-  display: block;
-  overflow: hidden;
-  width: 10vmax;
-  height: 10vmax;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 50%;
-}
-
-.card__profile img {
-  -webkit-transform: scale(1.5, 1.5)  translateZ(0);
-  transform: scale(1.5, 1.5)  translateZ(0);
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  -webkit-filter: grayscale(50%) contrast(75%) brightness(1.3);
-  filter: grayscale(50%) contrast(75%) brightness(1.3);
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-  mix-blend-mode: normal;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card:hover .card__profile img {
-  -webkit-transform: scale(1, 1)  translateZ(0);
-  transform: scale(1, 1)  translateZ(0);
-}
-
-.card__body {
-  display: grid;
-  padding: 0 20px;
-}
-
-.card__name {
-  align-self: center;
-  justify-self: center;
-  margin-bottom: 2px;
-  color: white;
-  font-size: var(--fontLarge);
-  font-weight: var(--fontLight);
-  letter-spacing: 0.1rem;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-  background: -webkit-linear-gradient(white, #a1a1a1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-}
-
-.card:hover .card__name {
-  background: -webkit-linear-gradient(white, #c1c1c1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.card__job {
-  align-self: center;
-  justify-self: center;
-  display: inline-block;
-  font-size: var(--fontSmall);
-  font-weight: var(--fontLight);
-  text-align: center;
-  letter-spacing: 0.35rem;
-  color: rgba(100, 130, 200, 0.45);
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-}
-
-.card:hover .card__job {
-  color: rgba(100, 130, 200, 1);
-}
-
-.card__bio {
-  position: relative;
-  -webkit-transform: translateY(30%);
-  transform: translateY(30%);
-  display: block;
-  margin: 22px 0 16px 0;
-  font-size: var(--fontMedium);
-  font-weight: var(--fontLight);
-  /*text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.35);*/
-  color: rgba(255, 255, 255, 0.65);
-  opacity: 0;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-}
-
-.card:hover .card__bio {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.card__footer {
-  position: relative;
-  -webkit-transform: translateY(60%);
-  transform: translateY(60%);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "date category";
-  padding: 10px 20px;
-  opacity: 0;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
-}
-
-.card:hover .card__footer {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.card__date {
-  grid-area: date;
-  display: inline-block;
-  align-self: left;
-  justify-self: left;
-  font-size: var(--fontSmall);
-  font-weight: var(--fontLight);
-  text-transform: uppercase;
-  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.45);
-  color: rgba(250, 250, 250, 0.4);
-}
-
-/* MODIFIERS */
-.card[data-effect="blur"]:hover .card__image img {
-  -webkit-filter: blur(3px);
-  filter: blur(3px);
-}
-
-.card[data-effect="blur"] .card__image img {
-  animation-name: blur;
-}
-
-.card[data-effect="color"]:hover {
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
-  box-shadow: 0 40px 260px rgba(255, 0, 0, 0.1), 0 40px 130px rgba(250, 100, 100, 0.2), -80px -40px 230px rgba(0, 200, 250, 0.15), 80px 40px 230px rgba(120, 120, 255, 0.15);
-}
-
-.card[data-effect="color"] .card__image {
-  background: linear-gradient(to bottom, rgba(20, 20, 100, 1), rgba(255, 100, 100, 0.5))
-}
-
-.card[data-effect="color"]:hover .card__image img {
-  opacity: 0.8;
-}
-
-.card[data-effect="color"]:hover .card__profile img {
-  -webkit-filter: grayscale(50%) contrast(80%) brightness(1.6);
-  filter: grayscale(50%) contrast(80%) brightness(1.6);
-  mix-blend-mode: normal;
-}
-
-
-
-
-
-
-
-
 </style>
 <script>
-  var demoButtons;
+  function loadCards(currentCardNumber, leftSwipe, touchDevice) {
+  var i, allCards = document.getElementsByClassName("cards"),
+      totalCards = allCards.length;
 
-function start () {
+  for (i = 0; i < totalCards; i++) {
+      allCards[i].className += " hideCard";
+  }
+  if (touchDevice) {
+      if (leftSwipe) {
+          document.getElementById('card' + currentCardNumber).className = 'cards animated reverseSlideOutLeft notCurrentCard'; //Previous Card
+          document.getElementById('card' + ((totalCards + currentCardNumber + 1) % totalCards)).className = 'cards currentCard animated reverseSlideOutCenterLeft'; //Current Card
+          document.getElementById('card' + ((totalCards + currentCardNumber + 2) % totalCards)).className = 'cards animated reverseSlideOutRight notCurrentCard'; //Next Card
+      } else {
 
-  // Add event "click" to "demo buttons"
-  demoButtons = document.querySelectorAll ('.js-modify');
-  for (var i = 0; i < demoButtons.length; i++) {
-    demoButtons[i].addEventListener ('click', toggleEffect);
+          document.getElementById('card' + ((totalCards + currentCardNumber - 2) % totalCards)).className = 'cards animated slideOutLeft notCurrentCard'; //Previous Card
+          document.getElementById('card' + ((totalCards + currentCardNumber - 1) % totalCards)).className = 'cards currentCard animated slideOutCenterLeft'; //Current Card
+          document.getElementById('card' + currentCardNumber).className = 'cards animated slideOutRight notCurrentCard '; //Next Card
+      }
+  } else {
+      if (leftSwipe) {
+          document.getElementById('card' + ((totalCards + currentCardNumber + 1) % totalCards)).className = 'cards animated reverseSlideOutLeft notCurrentCard prev'; //Previous Card
+          document.getElementById('card' + ((totalCards + currentCardNumber + 2) % totalCards)).className = 'cards currentCard animated reverseSlideOutCenterLeft'; //Current Card
+          document.getElementById('card' + ((totalCards + currentCardNumber + 3) % totalCards)).className = 'cards animated reverseSlideOutRight notCurrentCard nex'; //Next Card
+      } else {
+          document.getElementById('card' + ((totalCards + currentCardNumber - 3) % totalCards)).className = 'cards animated slideOutLeft notCurrentCard prev'; //Previous Card
+          document.getElementById('card' + ((totalCards + currentCardNumber - 2) % totalCards)).className = 'cards currentCard animated slideOutCenterLeft'; //Current Card
+          document.getElementById('card' + (totalCards + currentCardNumber - 1) % totalCards).className = 'cards animated slideOutRight notCurrentCard nex'; //Next Card
+      }
+  }
+}
+
+//If its a touch device then check for all the touch events
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  function swipedetect(el, callback) {
+      var touchsurface = el,
+          swipedir,
+          startX,
+          startY,
+          distX,
+          distY,
+          threshold = 100, //required min distance traveled to be considered swipe
+          restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+          allowedTime = 500, // maximum time allowed to travel that distance
+          elapsedTime,
+          startTime,
+          handleswipe = callback || function(swipedir) {}
+
+      touchsurface.addEventListener('touchstart', function(e) {
+          var touchobj = e.changedTouches[0]
+          swipedir = 'none'
+          dist = 0
+          startX = touchobj.pageX
+          startY = touchobj.pageY
+          startTime = new Date().getTime() // record time when finger first makes contact with surface
+          e.preventDefault()
+      }, false);
+
+      touchsurface.addEventListener('touchmove', function(e) {
+          e.preventDefault() // prevent scrolling when inside DIV
+      }, false);
+
+      touchsurface.addEventListener('touchend', function(e) {
+          var touchobj = e.changedTouches[0]
+          distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+          distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+          elapsedTime = new Date().getTime() - startTime // get time elapsed
+          if (elapsedTime <= allowedTime) { // first condition for awipe met
+              if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) { // 2nd condition for horizontal swip000
+                  swipedir = (distX < 0) ? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+              } else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint) { // 2nd condition for vertical000et
+                  swipedir = (distY < 0) ? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+              }
+          }
+          handleswipe(swipedir)
+          e.preventDefault()
+      }, false);
   }
 
-  // Add event "click" to "save buttons"
-  var saveButtons = document.querySelectorAll ('.js-save');
-  for (var i = 0; i < saveButtons.length; i++) {
-    saveButtons[i].addEventListener ('click', toggleActive);
+  //Initial cards load
+  loadCards(0, true, true);
+  var allCards = document.getElementsByClassName("cards"),
+      totalCards = allCards.length,
+      i;
+  for (i = 0; i < totalCards; i++) {
+      swipedetect(allCards[i], function(swipedir) {
+          var currentCard = Number(document.getElementsByClassName("currentCard")[0].id.slice(-1));
+          if (swipedir === "left") {
+              loadCards(currentCard, true, true);
+          } else if (swipedir === "right") {
+              loadCards(currentCard, false, true);
+          }
+      });
+  }
+} else {
+  loadCards(0, false, false);
+  var allCards = document.getElementsByClassName("cards"),
+      totalCards = allCards.length,
+      i;
+  for (i = 0; i < totalCards; i++) {
+      document.getElementsByClassName("cards")[i].addEventListener("click", function(event) {
+          var clickedNode = event.currentTarget.classList;
+          var detectSwipeDirectionClass = clickedNode[clickedNode.length - 1];
+          if (detectSwipeDirectionClass === "nex") {
+              loadCards(Number(event.currentTarget.id.slice(-1)), false, false);
+          } else if (detectSwipeDirectionClass === "prev") {
+              loadCards(Number(event.currentTarget.id.slice(-1)), true, false);
+          }
+      });
   }
 
 }
-
-// Toggle "effect" classes
-function toggleEffect () {
-  var target = document.querySelector (this.dataset.target);
-      target.dataset.effect = this.dataset.effect;
-
-  for (var i= 0; i < demoButtons.length; i++) {
-    demoButtons[i].classList.remove ('active');
-  }
-
-  toggleActive.call (this);
-}
-
-// Toggle "active" class
-function toggleActive () {
-  this.classList.toggle ('active');
-}
-
-// Invoke "start ()" function
-window.addEventListener ('load', start);
-
-
-
-
-
-
-
 
 </script>

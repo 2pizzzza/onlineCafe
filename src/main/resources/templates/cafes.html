@@ -1,14 +1,31 @@
+<!-- home.html -->
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Cafes</title>
+  <title>Home Page</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
 </head>
 <body>
-<h1>Cafes  ddd</h1>
+<h1>Welcome to the Home Page</h1>
+
+<h2>User Information:</h2>
+<div class="row mt-5">
+  <div class="col-6 mx-auto">
+    <h1>User Details</h1>
+    <img class="avatar" th:src="${user?.image ?: '/media/default.jpg'}" alt="User Image"/>
+    <div class="mt-2">Username: <span sec:authentication="principal.username"/></div>
+    <div class="mt-2"> Roles: <span sec:authentication="principal.authorities"/></div>
+
+    <div class="mt-5"><a class="link-primary" th:href="@{/logout}">Logout</a></div>
+  </div>
+</div>
+<h2>Restaurants:</h2>
 <ul>
   <li th:each="cafe : ${cafes}">
     <a th:href="@{/menu/{cafeId}(cafeId=${cafe.id})}" th:text="${cafe.name}"></a>
-    <p> th:text="${cafe.adress}"</p>
+    <p th:text="${cafe.disription}"></p>
+    <p th:text="${cafe.adress}"></p>
   </li>
 </ul>
 </body>

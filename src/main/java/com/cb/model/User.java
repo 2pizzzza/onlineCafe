@@ -27,6 +27,8 @@ public class User extends UserDto {
     private String email;
     @Column(nullable = false)
     private String password;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 
     @Column(name = "avatar_path", nullable = false)
     private String photo = "/com/cb/util/static/media/default.jpg";
@@ -41,7 +43,13 @@ public class User extends UserDto {
     )
     private List<Role> roles = new ArrayList<>();
 
+    public Cart getCart() {
+        return cart;
+    }
 
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public String getPhoto() {
         return photo;

@@ -10,25 +10,34 @@ public class MenuItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String category; // например, напитки, десерты, и т.д.
+    private String category;
     private BigDecimal price;
+
+    private String photo;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cafe_id")
     private Cafe cafe;
-
     @OneToMany(mappedBy = "menuItem", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    public MenuItem(Long id, String name, String category, BigDecimal price, Cafe cafe,List<Comment> comments) {
+    public MenuItem(Long id, String name, String category, BigDecimal price, Cafe cafe,List<Comment> comments, String photo) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.cafe = cafe;
         this.comments = comments;
+        this.photo = photo;
     }
     public MenuItem(){
 
+    }
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public void addComment(Comment comment) {

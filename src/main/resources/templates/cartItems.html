@@ -1,0 +1,20 @@
+<th:block th:fragment="cartItems">
+<table class="table" xmlns:th="http://www.w3.org/1999/xhtml">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cartItem : ${cartItems}">
+    <td th:text="${cartItem.menuItem.name}"></td>
+    <td th:text="${cartItem.menuItem.price}"></td>
+    <td>
+      <a th:href="@{'/cart/remove/' + ${cartItem.menuItem.id}}">Remove</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</th:block>
