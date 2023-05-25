@@ -1,110 +1,294 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title th:text="${cafe.name} + ' Menu'"></title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <!-- Подключение Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+  background: url(/static/media/Ресторан\ \(1\).jpg);
+  -o-background-size: cover;
+  background-size: cover;
+  width: 1400px;
+}
 
-    <!-- Подключение jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-    <!-- Подключение Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8">
-    <title th:text="${cafe.name} + ' Menu'"></title>
 
+.carousel{
+  transform: translateY(2000px) translateX(0px);
+}
+
+.order-text{
+  transform: translateY(2880px) translateX(1090px);
+  width: 288px;
+height: 41px;
+left: 1367px;
+top: 3641px;
+padding-bottom: 500px;
+font-family: 'Arial';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 130.5%;
+/* or 52px */
+
+
+color: #FFFFFF;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.com {
+  display: flex;
+  padding-left: 20px;
+  transform: translateY(25px);
+}
+
+ul {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: ba;
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 400px;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: wheat;
+}
+
+.ana {
+  left: 900px;
+  transform: translateY(-30px) translateX(-0px);
+  width: 70px;
+  height: 70px;
+}
+
+.restt{
+  display: inline-block;
+  margin-bottom: 500px;
+  transform: translateY(160px) translateX(665px);
+}
+h1 {
+  position: absolute;
+  left: 45.57%;
+  right: 45.1%;
+  top: 21.3%;
+  bottom: 73.33%;
+  transform: translateY(-30px) translateX(0px);
+
+  font-family: 'Arkhip';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 58px;
+  color: #2A635E;
+}
+
+.tetx-h1 {
+  transform: translateY(-30px) translateX(-100px);
+}
+
+.carousel {
+
+  transform: translateY(100px) translateX(200px);
+  width: 1260px;
+  height: 300px;
+  min-width: 1000px;
+}
+
+.cart {
+  width: 1090px;
+  height: 300px;
+  min-width: 1000px;
+  overflow: hidden;
+}
+
+.amit {
+  transform: translateX(49px) translateY(-90px);
+  height: 155px;
+  border-radius: 100%;
+  box-shadow: 0 25px 40px rgba(191, 181, 120, 1);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide {
+  margin: 0 10px;
+  width: 250px;
+  height: 290px;
+  flex-shrink: 0;
+  border-radius: 10%;
+}
+
+.com {
+  display: flex;
+  padding-left: 20px;
+  transform: translateY(25px);
+}
+
+ul {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 400px;
+}
+
+.ana {
+  padding-left: 900px;
+  transform: translateY(-30px) translateX(-100px);
+  width: 3px;
+  height: 1px;
+  display: block;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.ffff {
+  width: 250px;
+  height: 200px;
+  background: #FFFFFF;
+  margin-top: 90px;
+  border-radius: 10%;
+}
+
+.title {
+  width: 165px;
+  height: 28px;
+  display: inline-block;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #2A635E;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.price {
+  width: 44px;
+  height: 28px;
+  display: block;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 175%;
+  letter-spacing: 0.02em;
+  color: #F37761;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.textp {
+  transform: translateY(-50px) translateX(30px);
+}
+
+.deliver {
+  display: flex;
+  transform: translateX(500px) translateY(120px);
+  width: 200px;
+}
+
+h2 {
+  width: 293px;
+  height: 56px;
+  left: calc(50% - 293px/2 - 167.5px);
+  top: 793px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 175%;
+  letter-spacing: 0.02em;
+  color: #FC5B00;
+
+}
+
+h3 {
+  width: 228px;
+  height: 42px;
+  left: 1055px;
+  top: 800px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 175%;
+  /* identical to box height, or 42px */
+
+  letter-spacing: 0.02em;
+
+  /* 6 */
+
+  color: #2A635E;
+}
+
+input {
+  width: 293px;
+  height: 40px;
+  left: calc(50% - 293px/2 - 167.5px);
+  top: 891px;
+
+  background: #FFFFFF;
+  border-radius: 43px;
+}
+
+  </style>
 </head>
 <body>
-
-<h1 th:text="${cafe.name} + ' Menu'"></h1>
-<form th:action="@{/menu/{cafeId}(cafeId=${cafe.id})}" method="get">
-    <label for="category">Filter by category:</label>
-    <select id="category" name="category">
-        <option value="">All</option>
-        <th:block th:each="category : ${categories}">
-            <option th:value="${category}" th:text="${category}"></option>
-        </th:block>
-    </select>
-    <button type="submit">Apply</button>
-</form>
-<table>
-    <form method="get" th:action="@{'/menu/' + ${cafe.id}}">
-        <select id="category" name="category" onchange="this.form.submit()">
-            <option value="">All</option>
-            <th:block th:each="category : ${categories}">
-                <option th:value="${category}" th:text="${category}" th:selected="${category == param.category}"></option>
-            </th:block>
-        </select>
-    </form>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="menu : ${menus}">
-        <td>
-            <a th:href="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id}}">View Dish</a>
-            <span th:text="${menu.name}"></span>
-            </a>
-        </td>
-        <td th:text="${menu.category}"></td>
-        <td th:text="${menu.price}"></td>
-    </tr>
-    </tbody>
-</table>
-
-<h1 th:text="${cafe.name} + ' Menu'"></h1>
-
-<!-- Your existing code here... -->
-
-<!-- Button to trigger the modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
-    View Cart
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cartModalLabel">Cart</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="cartItem : ${cartItems}">
-                        <td th:text="${cartItem.menuItem.name}"></td>
-                        <td th:text="${cartItem.menuItem.price}"></td>
-                        <td>
-                            <a th:href="@{'/cart/remove/' + ${cartItem.menuItem.id}}">Remove</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+<div class="com">
+  <ul><a href="/home">Home</a></ul>
+  <ul> <a href="/cafes">Restaurants</a></ul>
+  <ul> <a href="/about">About</a> </ul>
+  <ul><a href="/cart">Cart</a></ul>
+  <ul style='transform: translateX(-710px) translateY(10px);' class="ana"><img class="ana"
+                                                                               th:src="${user?.image ?: '/media/default.jpg'}"
+                                                                               alt="User Image"></ul>
 </div>
-
-<!-- Include Bootstrap JS and jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+<div class="carousel" style="transform: translateY(1590px) translateX(200px);">
+  <div class="cart">
+    <div class="slides">
+      <tr th:each="menu : ${menus}">
+      <div class="slide" id="card0">
+        <div>
+          <div class="ffff">
+            <img class="amit" th:src="${menu.photo}" alt="">
+            <div class="textp">
+              <span class="title" th:text="${menu.name}"></span>
+              <img src="static/media/Frame 35429.png" alt="">
+              <td class="price" th:text="${menu.price}"></td>
+              <a th:href="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id}}" style="color:black;">View Dish</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </tr>
+      </div>
+  </div>
+</div>
+<div class="order-text">Make an Order</div>
 </body>
 </html>

@@ -32,4 +32,5 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("Invalid email or password");
         }
     }
+
 }

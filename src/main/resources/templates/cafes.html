@@ -1,32 +1,78 @@
-<!-- home.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Home Page</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+  background: url(/static/media/Рестораны.png);
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.com {
+  display: flex;
+  padding-left: 20px;
+  transform: translateY(25px);
+}
+
+ul {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: ba;
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 400px;
+}
+
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.ana {
+  left: 900px;
+  transform: translateY(-30px) translateX(-0px);
+  width: 70px;
+  height: 70px;
+}
+
+.restt{
+  display: inline-block;
+  margin-bottom: 500px;
+  transform: translateY(160px) translateX(665px);
+}
+.avatar {
+  width: 100px; /* установите желаемую ширину */
+  height: 100px; /* установите желаемую высоту */
+  border-radius: 50%; /* установите радиус скругления в половину ширины/высоты */
+  object-fit: cover; /* для сохранения соотношения сторон */
+}
+
+
+    </style>
 </head>
 <body>
-<h1>Welcome to the Home Page</h1>
-
-<h2>User Information:</h2>
-<div class="row mt-5">
-  <div class="col-6 mx-auto">
-    <h1>User Details</h1>
-    <img class="avatar" th:src="${user?.image ?: '/media/default.jpg'}" alt="User Image"/>
-    <div class="mt-2">Username: <span sec:authentication="principal.username"/></div>
-    <div class="mt-2"> Roles: <span sec:authentication="principal.authorities"/></div>
-
-    <div class="mt-5"><a class="link-primary" th:href="@{/logout}">Logout</a></div>
-  </div>
+<div class="com">
+    <ul><a href="/home">Home</a></ul>
+    <ul><a href="/cafes">Restaurants</a></ul>
+    <ul><a href="/about">About</a></ul>
+    <ul><a href="/cart">Cart</a></ul>
+    <ul style='transform: translateX(-710px) translateY(10px);' class="ana"><img class="ana"
+                                                                                 th:src="${user?.image ?: '/media/default.jpg'}"
+                                                                                 alt="User Image"></ul>
 </div>
-<h2>Restaurants:</h2>
 <ul>
-  <li th:each="cafe : ${cafes}">
-    <a th:href="@{/menu/{cafeId}(cafeId=${cafe.id})}" th:text="${cafe.name}"></a>
-    <p th:text="${cafe.disription}"></p>
-    <p th:text="${cafe.adress}"></p>
-  </li>
+    <li th:each="cafe : ${cafes}">
+        <a class="restt" th:href="@{/menu/{cafeId}(cafeId=${cafe.id})}"><img src="static/media/Ellipse 246.png" alt=""></a>
+    </li>
 </ul>
 </body>
+
 </html>

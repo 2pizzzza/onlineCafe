@@ -1,53 +1,186 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title th:text="${cafe.name} + ' - ' + ${menu.name}"></title>
+    <meta charset="UTF-8">
+    <title th:text="${cafe.name} + ' - ' + ${menu.name}"></title>
+    <style>
+    body {
+      background: url(/static/media/о\ нас.png);
+      -o-background-size: cover;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+     .com {
+    display: flex;
+    padding-left: 20px;
+    transform: translateY(25px);
+  }
+.avatar {
+  width: 100px; /* установите желаемую ширину */
+  height: 100px; /* установите желаемую высоту */
+  border-radius: 50%; /* установите радиус скругления в половину ширины/высоты */
+  object-fit: cover; /* для сохранения соотношения сторон */
+}
+  ul {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;
+    font-family: 'Bona Nova';
+    font-style: normal;
+    font-weight: 400px;
+  }
+
+  .ana {
+    padding-left: 900px;
+    transform: translateY(-30px) translateX(-0px);
+    width: 5px;
+    height: 5px;
+  }
+
+  a:active,
+  a:hover,
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 900px;
+      height: 900px;
+    }
+
+    .container {
+      background-color: #F37761;
+      color: #FFF;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      width: 900px;
+      height: 600px;
+      transform: translateX(30px) translateY(60px);
+    }
+
+    h1 {
+      color: #FFF;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      color: #FFF;
+    }
+
+    span {
+      color: #FFF;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #FFF;
+    }
+
+    button {
+      background-color: #FFF;
+      color: #F37761;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #FFA500;
+      color: #FFF;
+    }
+    .aaa{
+        display:flex;
+    }
+    .comment{
+        width: 400px;
+      height: 400px;
+        overflow: hidden;
+        transform: translateX(0px) translateY(-200px);
+
+    }
+.ammm{
+   transform: translateX(300px) translateY(-300px);
+}
+    </style>
 </head>
 <body>
-<h1 th:text="${cafe.name} + ' - ' + ${menu.name}"></h1>
-<p>Category: <span th:text="${menu.category}"></span></p>
-<p>Price: <span th:text="${menu.price}"></span></p>
+<div class="wrapper">
+    <div class="container">
+        <h1 th:text="${cafe.name} + ' - ' + ${menu.name}"></h1>
+        <p>Category: <span th:text="${menu.category}"></span></p>
+        <p>Price: <span th:text="${menu.price}"></span></p>
 
-<div>
-  <!-- Отображение фотографии блюда -->
-  <img th:src="${menu.photo}" alt="Menu Item Photo">
-  <p>Photo: <span th:text="${menu.photo}"></span></p>
+        <div>
+            <!-- Отображение фотографии блюда -->
+            <img th:src="${menu.photo}" alt="Menu Item Photo">
+        </div>
+        <div class="ammm">
+            <form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/add-to-cart'}" method="post">
+                <button type="submit">Add to Cart</button>
+            </form>
 
+            <form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/remove-from-cart'}" method="post">
+                <button type="submit">Remove from Cart</button>
+            </form>
+        </div>
+
+        <div class="comment">
+            <!-- Отображение списка комментариев -->
+            <div>
+                <h3>comment</h3>
+                <ul>
+                    <li th:each="comment : ${comments}">
+                        <span th:text="${comment.user.name}"></span>: <span th:text="${comment.comment}"></span>
+                    </li>
+                </ul>
+            </div>
+
+        <div class="aaa">
+            <form th:action="@{/menu/{cafeId}/dish/{menuId}/comment(cafeId=${cafe.id}, menuId=${menu.id})}" method="post">
+                <textarea name="comment" rows="4" cols="50" required></textarea>
+                <div class="aaa">
+                    <button type="submit">ADD COMMENT</button>
+                </div>
+            </form>
+        </div>
+            <!-- ... -->
+
+            <h1 th:text="${cafe.name} + ' Menu'"></h1>
+
+            <!-- ... -->
+
+        </div>
+    </div>
 </div>
-
-<div>
-  <!-- Отображение списка комментариев -->
-  <div>
-    <h3>Комментарии</h3>
-    <ul>
-      <li th:each="comment : ${comments}">
-        <span th:text="${comment.user.name}"></span>: <span th:text="${comment.comment}"></span>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<form th:action="@{/menu/{cafeId}/dish/{menuId}/comment(cafeId=${cafe.id}, menuId=${menu.id})}" method="post">
-  <textarea name="comment" rows="4" cols="50" required></textarea>
-  <button type="submit">Добавить комментарий</button>
-</form>
-
-<!-- ... -->
-
-<h1 th:text="${cafe.name} + ' Menu'"></h1>
-
-<!-- ... -->
-
-<form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/add-to-cart'}" method="post">
-  <button type="submit">Add to Cart</button>
-</form>
-
-<form th:action="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id} + '/remove-from-cart'}" method="post">
-  <button type="submit">Remove from Cart</button>
-</form>
-
-<!-- ... -->
-
 </body>
 </html>

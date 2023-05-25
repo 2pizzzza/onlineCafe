@@ -46,7 +46,7 @@
         height: 300px;
         min-width: 1000px;
         overflow: hidden;
-        display: flex; /* Added */
+        display: flex;
     }
 
     .amit {
@@ -125,9 +125,6 @@
         flex-grow: 0;
     }
 
-    .textp {
-        transform: translateY(-50px) translateX(30px);
-    }
 
     .deliver {
         display: flex;
@@ -253,7 +250,7 @@
     }
 
     .textp {
-      transform: translateY(-50px) translateX(30px);
+      transform: translateY(-170px) translateX(15px);
     }
 
     .deliver {
@@ -404,7 +401,7 @@
 <body>
 <div class="com">
     <ul><a href="/home">Home</a></ul>
-    <ul>Restaurants</ul>
+    <ul><a href="/cafes">Restaurants</a></ul>
     <ul><a href="/about">About</a></ul>
     <ul style="transform: translateY(-4px) translateX(340px);"><img style="width: 129px; height: 120px;"
                                                                     src="static/media/Group 20.png" alt=""></ul>
@@ -419,11 +416,11 @@
         <div th:each="cartItem : ${cartItems}" class="slide" th:id="'card' + ${cartItem.menuItem.id}">
             <div>
                 <div class="ffff">
-                    <img class="amit" th:src="${cartItem.menuItem.photo}" alt="">
+                    <img style="width:250px; height: 250px; transform: translateX(0px) translateY(-90px);"  th:src="${cartItem.menuItem.photo}" alt="">
                     <div class="textp">
                         <span class="title" th:text="${cartItem.menuItem.name}"></span>
                         <img src="static/media/Frame 35429.png" alt="">
-                        <span class="price" th:text="${cartItem.menuItem.price}"></span>
+                        <span class="price" th:inline="text">[[${cartItem.menuItem.price}]] $</span>
                         <a th:href="@{'/cart/remove/' + ${cartItem.menuItem.id}}">Remove</a>
                     </div>
                 </div>
@@ -456,7 +453,8 @@
         </div>
     </div>
     <div class="total">
-        <h3 style="transform: translateY(7px); width: 250px;">Total price: 25.27$</h3>
+        <h3 style="transform: translateY(7px); width: 250px;" th:inline="text">[[${total}]] $</h3>
+
         <h2 style="font-size: 20px; font-size: 20px; transform: translateY(-10px);">Card / Cash</h2>
         <input class="button" id="openModalBtn" type="submit" value="Make an order"
                style="width: 100px; display: block; transform: translateY(-35px); border: none; background: #FC5B00; width: 210px; color: #FFFFFF; font-size: 20px; font-weight: 600;"/>

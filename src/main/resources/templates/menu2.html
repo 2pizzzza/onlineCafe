@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${cafe.name} + ' Menu'"></title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title th:text="${cafe.name} + ' Menu'"></title>
+
+</head>
+<body>
+
+<h1 th:text="${cafe.name} + ' Menu'"></h1>
+<form th:action="@{/menu/{cafeId}(cafeId=${cafe.id})}" method="get">
+    <label for="category">Filter by category:</label>
+    <select id="category" name="category">
+        <option value="">All</option>
+        <th:block th:each="category : ${categories}">
+            <option th:value="${category}" th:text="${category}"></option>
+        </th:block>
+    </select>
+    <button type="submit">Apply</button>
+</form>
+<table>
+    <form method="get" th:action="@{'/menu/' + ${cafe.id}}">
+        <select id="category" name="category" onchange="this.form.submit()">
+            <option value="">All</option>
+            <th:block th:each="category : ${categories}">
+                <option th:value="${category}" th:text="${category}" th:selected="${category == param.category}"></option>
+            </th:block>
+        </select>
+    </form>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="menu : ${menus}">
+        <td>
+            <a th:href="@{'/menu/' + ${cafe.id} + '/dish/' + ${menu.id}}">View Dish</a>
+            <span th:text="${menu.name}"></span>
+            </a>
+        </td>
+        <td th:text="${menu.category}"></td>
+        <td th:text="${menu.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h1 th:text="${cafe.name} + ' Menu'"></h1>
+
+<!-- Your existing code here... -->
+
+<!-- Button to trigger the modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+    View Cart
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="cartItem : ${cartItems}">
+                        <td th:text="${cartItem.menuItem.name}"></td>
+                        <td th:text="${cartItem.menuItem.price}"></td>
+                        <td>
+                            <a th:href="@{'/cart/remove/' + ${cartItem.menuItem.id}}">Remove</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

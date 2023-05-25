@@ -204,8 +204,14 @@ public class MenuItemController {
                 List<CartItem> cartItems = cart.getItems().stream()
                         .map(menuItem -> new CartItem(menuItem, 1)) // Здесь 1 - это количество позиций, можно настроить по вашему требованию
                         .collect(Collectors.toList());
+
+                double total = cartItems.stream()
+                        .mapToDouble(cartItem -> cartItem.getMenuItem().getPrice().doubleValue())
+                        .sum();
+
                 model.addAttribute("cartItems", cartItems);
-                return "cart"; // Используем фрагмент шаблона для обновления только содержимого модального окна
+                model.addAttribute("total", total); // Добавляем переменную total в модель
+                return "cart";
             }
         }
         return "error";
